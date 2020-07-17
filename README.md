@@ -1,1 +1,1 @@
-# luck_number_1
+# algorithms
