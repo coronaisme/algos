@@ -19,3 +19,14 @@
 // of which only "aa" is possible, so the final string is "ca".
 
 
+const removeDuplicates = (str) => {
+  const substring = str.split("")
+  for (let i = 0; i < substring.length;i++) {
+    if ((substring[i] === substring[i + 1]) && (substring[i]) ) {
+      // remove them both
+      substring.splice(i, 2)
+      i -= 2
+    } 
+  }
+  return substring.join("")
+};
