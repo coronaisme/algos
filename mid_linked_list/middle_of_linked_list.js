@@ -1,4 +1,4 @@
-// Given a non-empty, singly linked list with head node head, 
+// Given a non-empty, singly linked list with head node head,
 // return a middle node of linked list.
 
 // If there are two middle nodes, return the second middle node.
@@ -9,32 +9,27 @@
 // Note that we returned a ListNode object ans, such that:
 // ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, and ans.next.next.next = NULL.
 
-
-var middleNode = function(head) {
-  let count = 0
-  let currentNode = head
+const middleNode = function (head) {
+  let count = 0;
+  let currentNode = head;
   let target;
-  let finalCount = 0
+  let finalCount = 0;
   // count the nodes
   while (currentNode) {
-    count += 1
-    currentNode = currentNode.next
+    count += 1;
+    currentNode = currentNode.next;
   }
   if (count % 2 === 0) {
-    target = (count / 2) + 1
-  } else { // odd
-    target = Math.ceil(count / 2)
+    target = count / 2 + 1;
+  } else {
+    // odd
+    target = Math.ceil(count / 2);
   }
   // find middle num
-  currentNode = head
+  currentNode = head;
   while (finalCount < target - 1) {
-   //  console.log("")
-   //  console.log("current node", currentNode)
-   //  console.log("target", target)
-   //  console.log("finalcount", finalCount)
-   //  console.log(" ")
-    finalCount += 1
-    currentNode = currentNode.next
+    finalCount += 1;
+    currentNode = currentNode.next;
   }
- return currentNode
+  return currentNode;
 };
