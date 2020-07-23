@@ -8,20 +8,25 @@
 // Explanation: The substring "eeeee" is of length 5 with the character 'e' only.
 
 const maxPower = (s) => {
+  //create a currentHighestCount var
+  //iterate, and when elements are the same add to count
+  //when we hit a new element, reset count at 1
+
   let currentHighestCount = 0;
   let currentInARow = 1;
   const sArr = s.split("");
 
-  for (let i = 0; i < sArr.length; i++) {
-    if (sArr[i] !== sArr[i + 1]) {
+  sArr.forEach((c, i) => {
+    if (c !== sArr[i + 1]) {
       currentInARow = 1;
     }
-    if (sArr[i] === sArr[i + 1]) {
+    if (c === sArr[i + 1]) {
       currentInARow += 1;
     }
     if (currentInARow > currentHighestCount) {
       currentHighestCount = currentInARow;
     }
-  }
+  });
+
   return currentHighestCount;
 };
