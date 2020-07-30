@@ -8,3 +8,22 @@
 
 // Input: [0,1,0]
 // Output: 1
+
+
+const findPeak = (arr) => {
+  const startSearch = 1
+  let peakIndex = startSearch
+  const endSearch = arr.length - 2
+  for (let i = startSearch; i <= endSearch; i++) {
+    // update peak, if bigger than current peak
+    if (arr[peakIndex] < arr[i]) {
+       peakIndex = i
+    }
+  }
+  return peakIndex
+}
+
+const peakIndexInMountainArray = function(A) {
+    // find the peak - the largest number
+   return findPeak(A)
+};
