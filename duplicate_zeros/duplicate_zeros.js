@@ -15,5 +15,12 @@
 // Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]
 
 const duplicateZeros = (arr) => {
-  
+  for(let i = arr.length - 2; i >= 0; i--) {
+    if(arr[i] === 0) {
+      for(let j = arr.length - 1; j > i; j--) {
+        arr[j] = arr[j - 1]
+      }
+    }
+  }
+return null
 }
