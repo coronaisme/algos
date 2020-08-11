@@ -19,6 +19,25 @@
 // left = "0111" and right = "01", score = 1 + 1 = 2 
 // left = "01110" and right = "1", score = 2 + 1 = 3
 
+
+function stringScore(str, direction){
+  let count = 0
+  if(direction === 'left'){
+    for(let i = 0; i < str.length; i++){
+      if (str[i] === '0'){
+        count += 1
+      } 
+    }
+  } else {
+    for(let i = 0; i < str.length; i++){
+      if (str[i] === '1'){
+        count += 1
+      } 
+    }
+  }
+  return count
+}
+
 const maxScore = (s) => {
-  
+
 }
