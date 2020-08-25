@@ -9,7 +9,7 @@
 // Output: 8
 // Explanation: There are 8 negatives number in the matrix.
 
-const countNumbers = (matrix) => {
+const countNumbers = (grid) => {
   // have a variable to hold total count of negative nums
   let count = 0;
   // iterate through each row
