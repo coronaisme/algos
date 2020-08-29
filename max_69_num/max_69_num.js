@@ -17,8 +17,8 @@
 const max69Num = (num) => {
   let splitNum = num.toString().split("");
   let numArr = splitNum.map((n) => parseInt(n));
+
   for (let i = 0; i < numArr.length; i++) {
-    let num = numArr[i];
     if (numArr[i] === 6) {
       numArr[i] = 9;
       break;
