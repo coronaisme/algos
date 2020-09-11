@@ -11,13 +11,13 @@
 
 const middleNode = function (head) {
   let count = 0;
-  let currentNode = head;
+  let currentNode = head; //reference for head so we dont change head
   let target;
   let finalCount = 0;
   // count the nodes
   while (currentNode) {
     count += 1;
-    currentNode = currentNode.next;
+    currentNode = currentNode.next; //traverse nodes
   }
   if (count % 2 === 0) {
     target = count / 2 + 1;

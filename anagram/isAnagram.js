@@ -8,8 +8,8 @@ const isAnagram = function(s, t) {
     
   const obj = {}
   
-  s.split('').map(c => obj[c] = obj[c] ? obj[c] + 1 : 1)
-  t.split('').map(c => obj[c] = obj[c] ? obj[c] - 1 : -1)
+  s.split('').map(c => obj[c] = obj[c] ? obj[c] + 1 : 1) //add  
+  t.split('').map(c => obj[c] = obj[c] ? obj[c] - 1 : -1) //take
   
-  return Object.keys(obj).every(key => obj[key] === 0)
+  return Object.keys(obj).every(key => obj[key] === 0) //check
 };
