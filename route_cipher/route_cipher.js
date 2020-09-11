@@ -6,18 +6,35 @@
 
 //ex : message = "Hello, I am a message to scramblelol", r = 6, c = 6
 
-//    'H', 'e', 'l', 'l', 'o', ',' 
-//    ' ', 'I', ' ', 'a', 'm', ' ' 
-//    'a', ' ', 'm', 'e', 's', 's' 
-//    'a', 'g', 'e', ' ', 't', 'o' 
-//    ' ', 's', 'c', 'r', 'a', 'm' 
-//    'b', 'l', 'e', 'l', 'o', 'l' 
+//    'H', 'e', 'l', 'l', 'o', ','
+//    ' ', 'I', ' ', 'a', 'm', ' '
+//    'a', ' ', 'm', 'e', 's', 's'
+//    'a', 'g', 'e', ' ', 't', 'o'
+//    ' ', 's', 'c', 'r', 'a', 'm'
+//    'b', 'l', 'e', 'l', 'o', 'l'
 
 //output = 'H aa beI gsll mecelae rlomstao, soml'
 
-
 const routeCipher = (message, c, r) => {
+  let outerArray = [];
+  let innerArray = [];
+  let messageArr = message.split("");
+  let string = "";
 
+  for (let i = 0; i < r; i++) {
+    for (let j = 0; j < c; j++) {
+      innerArray.push(messageArr[0]);
+      messageArr.splice(0, 1);
+    }
+    outerArray.push(innerArray);
+    innerArray = [];
+  }
 
+  for (let i = 0; i < outerArray.length; i++) {
+    for (let j = 0; j < outerArray.length; j++) {
+      string = string + outerArray[j][i];
+    }
+  }
 
-}
+  return string;
+};
