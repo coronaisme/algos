@@ -17,6 +17,31 @@
 // Output: "azs"
 // Explanation: There are 25 solutions for this problem. From "azs" to "yzs", all are valid. Only "z" is an invalid modification as the string will consist of consecutive repeating characters in "zzs".
 
+const findQualifiedChar = (a, b) => {
+  let alphabet = [];
+  let qualifiedChar;
+
+  for (let i = "a".charCodeAt(); i <= "z".charCodeAt(); i++) {
+    alphabet.push(String.fromCharCode(i));
+  }
+
+  qualifiedChar = Math.floor(Math.random() * 24);
+
+  while (alphabet[qualifiedChar] === a || alphabet[qualifiedChar] === b) {
+    qualifiedChar = Math.floor(Math.random() * 24);
+  }
+
+  return alphabet[qualifiedChar];
+};
+
 const modifyString = (s) => {
-  
-}
+  let strArr = s.split("");
+
+  strArr.forEach((c, i) => {
+    if (c === "?") {
+      strArr[i] = findQualifiedChar(strArr[i + 1], strArr[i - 1]);
+    }
+  });
+
+  return strArr.join("");
+};
