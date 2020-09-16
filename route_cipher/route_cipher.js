@@ -19,7 +19,7 @@ const routeCipher = (message, c, r) => {
   let outerArray = [];
   let innerArray = [];
   let messageArr = message.split("");
-  let string = "";
+  let string = '';
 
   for (let i = 0; i < r; i++) {
     for (let j = 0; j < c; j++) {
