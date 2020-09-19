@@ -11,11 +11,10 @@ const isUpperCase = (str) => {
 };
 
 const toLowerCase = function (str) {
-  let split = str.split("");
+  let splitStr = str.split("");
 
-  let newArr = split.map((c) => {
+  let newArr = splitStr.map((c) => {
     if (c.charCodeAt(0) >= 65 && c.charCodeAt(0) <= 90 && isUpperCase(c)) {
-      console.log(c, "log");
       let code = c.charCodeAt(0) + 32;
       return String.fromCharCode(code);
     }
