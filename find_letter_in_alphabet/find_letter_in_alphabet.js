@@ -26,5 +26,23 @@ const iterativeFinder = (alphabet, target) => {
   } times`;
 };
 
-// let alphabet = alphabetMaker();
-// console.log(recursiveFinder(alphabet, "j"));
+const recursiveFinder = (alphabet, target) => {
+  let mid = Math.floor((alphabet.length + 1) / 2);
+
+  if (alphabet[mid] > target) {
+    alphabet.splice(mid);
+    return recursiveFinder(alphabet, "l");
+  } else if (alphabet[mid] < target) {
+    alphabet.splice(0, mid);
+    return recursiveFinder(alphabet, "l");
+  } else if (alphabet[mid] === target) {
+    return `Found target ${alphabet[mid]}`;
+  } else {
+    return "Target not found";
+  }
+};
+
+// Math.floor((alphabet.length + 1) / 2)
+
+let alphabet = alphabetMaker();
+console.log(recursiveFinder(alphabet, "l"));
