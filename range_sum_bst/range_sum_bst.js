@@ -13,5 +13,13 @@
 // Output: 23
 
 const rangeSumBST = (root, l, r) => {
-  
+  if (root === null) {
+    return 0;
+  } else {
+    return (
+      (root.val >= l && root.val <= r ? root.val : 0) +
+      rangeSumBST(root.left, l, r) +
+      rangeSumBST(root.right, l, r)
+    );
+  }
 };
