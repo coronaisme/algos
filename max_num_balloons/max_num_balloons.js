@@ -31,7 +31,6 @@ const makeLoon = (obj) => {
 
 const maxNumberOfBalloons = (text) => {
   let textObj = {};
-  // let balloonObj = { b: 1, a: 1, l: 2, o: 2, n: 1 };
   let count = 0;
 
   text.split("").forEach((c) => {
