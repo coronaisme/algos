@@ -13,4 +13,13 @@
 // Output: true
 // Explanation: Possible partition [1,1],[2,2],[3,3],[4,4].
 
-const hasGroupsSizeX = function (deck) {};
+const hasGroupsSizeX = function (deck) {
+  const primeArr = [5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53];
+  let obj = {};
+
+  deck.forEach((c) => (obj[c] ? obj[c]++ : (obj[c] = 1)));
+
+  for (let key in obj) {
+    if (obj[key] === 1) return false;
+  }
+};
