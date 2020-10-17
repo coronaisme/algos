@@ -22,4 +22,37 @@ const hasGroupsSizeX = function (deck) {
   for (let key in obj) {
     if (obj[key] === 1) return false;
   }
+
+
+  let isDivisBy2 = true;
+  let isDivisBy3 = true;
+
+  for (let key in obj) {
+    if (obj[key] % 2 !== 0) {
+      isDivisBy2 = false;
+    }
+  }
+
+  for (let key in obj) {
+    if (obj[key] % 3 !== 0) {
+      isDivisBy3 = false;
+    }
+  }
+
+  if (isDivisBy2 || isDivisBy3) return true;
+
+  let isDivisByPrime = true;
+
+  for (let i = 0; i < primeArr.length; i++) {
+    isDivisByPrime = true;
+    for (let key in obj) {
+      if (obj[key] % primeArr[i] !== 0) {
+        isDivisByPrime = false;
+      }
+    }
+    if (isDivisByPrime) {
+      return true;
+    }
+  }
+  return false;
 };
