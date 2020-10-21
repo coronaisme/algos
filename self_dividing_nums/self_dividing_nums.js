@@ -14,4 +14,25 @@
 // left = 1, right = 22
 // Output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]
 
-const selfDividingNumbers = (left, right) => {};
+const isSelfDividing = (num) => {
+  const num_arr = num
+    .toString()
+    .split("")
+    .map((n) => parseInt(n));
+  let divisible = true;
+  num_arr.forEach((n) => {
+    if (n === 0) divisible = false;
+    else {
+      if (num % n != 0) divisible = false;
+    }
+  });
+  return divisible;
+};
+console.log(isSelfDividing(13));
+var selfDividingNumbers = function (left, right) {
+  const selfies = [];
+  for (let i = left; i <= right; i++) {
+    if (isSelfDividing(i)) selfies.push(i);
+  }
+  return selfies;
+};
