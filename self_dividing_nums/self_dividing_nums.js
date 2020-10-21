@@ -19,7 +19,9 @@ const isSelfDividing = (num) => {
     .toString()
     .split("")
     .map((n) => parseInt(n));
+
   let divisible = true;
+
   num_arr.forEach((n) => {
     if (n === 0) divisible = false;
     else {
@@ -28,7 +30,7 @@ const isSelfDividing = (num) => {
   });
   return divisible;
 };
-console.log(isSelfDividing(13));
+
 var selfDividingNumbers = function (left, right) {
   const selfies = [];
   for (let i = left; i <= right; i++) {
