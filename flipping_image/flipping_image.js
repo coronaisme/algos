@@ -25,4 +25,4 @@ const invert = (arr) => {
   });
 };
 
-const flipAndInvertImage = (input) => {};
+const flipAndInvertImage = (input) => input.map((r) => invert(r.reverse()));
