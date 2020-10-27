@@ -23,5 +23,8 @@
 // So the total importance value of employee 1 is 5 + 3 + 3 = 11.
 
 var GetImportance = function(employees, id) {
+
+  let importance = 0;
+  let employee = employees.find(employee => employee.id === id)
     
 };
