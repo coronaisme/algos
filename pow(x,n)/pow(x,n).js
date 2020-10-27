@@ -21,3 +21,17 @@ const myPow = function (x, n) {
 const constantLookup = (arr = [1,2,3,4,5,6,7,8,9,10]) => {
   return arr[0]
 }
+
+
+const iterativePow = (x, n) => {
+  let res = 1
+  for(let i = 0; i < n; i++) {
+    res *= x
+  }
+  return res
+}
+
+const recursivePow = (x, n) => n === 1 ? x : (x * recursivePow(x, n - 1))
+
+console.log(recursivePow(2, 5)) //32
+console.log(iterativePow(2, 5)) //32
