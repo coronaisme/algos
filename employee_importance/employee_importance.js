@@ -29,20 +29,16 @@ var GetImportance = function (employees, id) {
   function importanceCount(employee) {
     //base case
     if (employee.subordinates.length === 0) {
-      console.log(employee, "employee");
       importance += employee.importance;
     } else {
       //recursive case
-      console.log(employee);
       employee.subordinates.forEach((subId) => {
         let e = employees.find((employee) => employee.id === subId);
-        console.log(e, "e");
         importanceCount(e);
       });
       importance += employee.importance;
     }
   }
-
   importanceCount(employee);
   return importance;
 };
