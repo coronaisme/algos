@@ -27,10 +27,43 @@
 
 // There are 2 different transformations, "--...-." and "--...--.".
 
-const morse_translation = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
-const letters = {}
-for (let i = 97; i < 123; i++ ) {
-  letters[(String.fromCharCode(i))] = morse_translation[i - 97]
+const morse_translation = [
+  ".-",
+  "-...",
+  "-.-.",
+  "-..",
+  ".",
+  "..-.",
+  "--.",
+  "....",
+  "..",
+  ".---",
+  "-.-",
+  ".-..",
+  "--",
+  "-.",
+  "---",
+  ".--.",
+  "--.-",
+  ".-.",
+  "...",
+  "-",
+  "..-",
+  "...-",
+  ".--",
+  "-..-",
+  "-.--",
+  "--..",
+];
+const letters = {};
+for (let i = 97; i < 123; i++) {
+  letters[String.fromCharCode(i)] = morse_translation[i - 97];
 }
+
+const transform = (word) => {
+  const characters = word.split("");
+  const morse_chars = characters.map((char) => letters[char]);
+  return morse_chars.join("");
+};
 
 const uniqueMorseRepresentations = (words) => {};
