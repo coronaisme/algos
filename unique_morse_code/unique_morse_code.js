@@ -66,4 +66,23 @@ const transform = (word) => {
   return morse_chars.join("");
 };
 
-const uniqueMorseRepresentations = (words) => {};
+const uniqueMorseRepresentations = (words) => {
+  return uniq(words.map((word) => transform(word))).length;
+};
+words = ["gin", "zen", "gig", "msg"];
+const uniq = (arr) => {
+  const uniq_keys_hash = {};
+  let item;
+  for (let i = 0; i < arr.length; i++) {
+    // if item isnt key in hash, add it
+    item = arr[i];
+    if (!uniq_keys_hash[item]) uniq_keys_hash[item] = true;
+    // else remove item from arr
+    else {
+      arr.splice(i, 1);
+      // decrement counter, so loop doesnt break
+      i--;
+    }
+  }
+  return arr;
+};
