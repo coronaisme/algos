@@ -1,10 +1,10 @@
-// You're given strings J representing the types of stones that are jewels, 
-// and S representing the stones you have.  Each character in S is a type of 
-// stone you have.  You want to know how many of the stones you have are also 
+// You're given strings J representing the types of stones that are jewels,
+// and S representing the stones you have.  Each character in S is a type of
+// stone you have.  You want to know how many of the stones you have are also
 // jewels.
 
-// The letters in J are guaranteed distinct, and all characters in J 
-// and S are letters. Letters are case sensitive, so "a" is considered a 
+// The letters in J are guaranteed distinct, and all characters in J
+// and S are letters. Letters are case sensitive, so "a" is considered a
 // different type of stone from "A".
 
 // Example 1:
@@ -16,6 +16,15 @@
 // Input: J = "z", S = "ZZ"
 // Output: 0
 
-const numJewelsInStones = function(J, S) {
-    
+const numJewelsInStones = function (J, S) {
+  let obj = {};
+  let jewels = J.split("");
+  let stones = S.split("");
+  jewels.forEach((j) => (obj[j] = 0));
+  stones.forEach((s) => {
+    if (s in obj) {
+      obj[s]++;
+    }
+  });
+  return Object.values(obj).reduce((a, b) => a + b);
 };
