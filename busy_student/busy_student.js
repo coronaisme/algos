@@ -23,4 +23,14 @@
 // The third student started doing homework at time 3 and
 // finished at time 7 and was the only student doing homework at time 4.
 
-const busyStudent = (startTime, endTime, queryTime) => {};
+const busyStudent = (startTime, endTime, queryTime) => {
+  let resultCount = 0;
+
+  for (let i = 0; i < startTime.length; i++) {
+    if (startTime[i] <= queryTime && endTime[i] >= queryTime) {
+      resultCount++;
+    }
+  }
+
+  return resultCount;
+};
