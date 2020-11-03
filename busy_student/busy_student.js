@@ -26,11 +26,16 @@
 const busyStudent = (startTime, endTime, queryTime) => {
   let resultCount = 0;
 
-  for (let i = 0; i < startTime.length; i++) {
-    if (startTime[i] <= queryTime && endTime[i] >= queryTime) {
+  // for (let i = 0; i < startTime.length; i++) {
+  //   if (startTime[i] <= queryTime && endTime[i] >= queryTime) {
+  //     resultCount++;
+  //   }
+  // }
+  startTime.forEach((e, i) => {
+    if (e <= queryTime && endTime[i] >= queryTime) {
       resultCount++;
     }
-  }
+  });
 
   return resultCount;
 };
