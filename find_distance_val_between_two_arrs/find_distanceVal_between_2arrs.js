@@ -25,14 +25,16 @@
 // |8-8|=0 <= d=2
 
 const findTheDistanceValue = (arr1, arr2, d) => {
-  for (let i = 0; i < arr1.length; i++) {
-    for (let j = 0; j < arr2.length; j++) {
-      if (Math.abs(arr1[i] - arr2[j]) <= d) {
-        arr1.splice(i, 1);
-        j--;
-        i--;
-      }
-    }
-  }
-  return arr1.length;
+  // for (let i = 0; i < arr1.length; i++) {
+  //   for (let j = 0; j < arr2.length; j++) {
+  //     if (Math.abs(arr1[i] - arr2[j]) <= d) {
+  //       arr1.splice(i, 1);
+  //       j--;
+  //       i--;
+  //     }
+  //   }
+  // }
+  // return arr1.length;  //brute sol
+
+  return arr1.filter((a) => arr2.every((b) => Math.abs(a - b) > d)).length; //elegant sol
 };
