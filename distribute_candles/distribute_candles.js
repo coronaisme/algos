@@ -18,18 +18,20 @@
 // Alice will choose to eat 1 candy of each type. This leads her to eat 3 different types of
 // candies and we return 3.
 
-const uniq = (arr) => {
-  const uniqValues = {};
-  arr.forEach((ele) => {
-    if (!(ele in uniqValues)) {
-      uniqValues[ele] = true;
-    }
-  });
-  return Object.keys(uniqValues).map((key) => parseInt(key));
-};
+const unique = (arr) => [...new Set(arr)];
+
+// const uniq = (arr) => {
+//   const uniqValues = {};
+//   arr.forEach((ele) => {
+//     if (!(ele in uniqValues)) {
+//       uniqValues[ele] = true;
+//     }
+//   });
+//   return Object.keys(uniqValues).map((key) => parseInt(key));
+// };
 const distributeCandies = (candies) => {
   const sisterCandyCount = candies.length / 2;
-  const uniqCandies = uniq(candies);
+  const uniqCandies = unique(candies);
   // case 1: sister gets all her candies unique
   if (uniqCandies.length >= sisterCandyCount) return sisterCandyCount;
   // case 2: sister gets as many unique candies as there are
