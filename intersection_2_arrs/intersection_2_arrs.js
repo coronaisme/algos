@@ -9,6 +9,8 @@
 // Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
 // Output: [9,4]
 
+const unique = (arr) => [...new Set(arr)]
+
 const intersection = (nums1, nums2) => {
   //compare the arrays, if we find numbers that are in both, push into new array
   let newArr = [];
@@ -20,6 +22,6 @@ const intersection = (nums1, nums2) => {
       }
     }
   }
-  return uniq(newArr);
+  return unique(newArr);
   //make uniq function and call on new array or push only if not in array
 };
