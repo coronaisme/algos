@@ -21,4 +21,55 @@
 // From the fifth customer, we give a $10 bill and a $5 bill.
 // Since all customers got correct change, we output true.
 
-const lemonadeChange = (bills) => {};
+const lemonadeChange = (bills) => {
+  const ourMoney = {}; // keys are bills, values occurrences
+  let status = true;
+  bills.forEach((bill) => {
+    if (bill === 5) {
+      // they dont get any change, we get a 5
+      if (5 in ourMoney) {
+        ourMoney[5] += 1;
+      } else {
+        ourMoney[5] = 1;
+      }
+    } else if (bill === 10) {
+      // collect the money
+      if (10 in ourMoney) {
+        ourMoney[10] += 1;
+      } else {
+        ourMoney[10] = 1;
+      }
+      // if we dont have a five, return false
+      if (!(5 in ourMoney) || ourMoney[5] <= 0) status = false;
+      // we do have the change, so carry out transaction
+      // collect money
+      // give the change
+      ourMoney[5] -= 1;
+    } else {
+      // bill is a 20
+      // accept new money
+      console.log("twenty case");
+      if (20 in ourMoney) {
+        ourMoney[20] += 1;
+      } else {
+        ourMoney[20] = 1;
+      }
+      // if there isnt 15 dollars in change return false
+      // three fives
+      // one five and one ten
+      if (!(ourMoney[5] >= 3 || (ourMoney[5] >= 1 && ourMoney[10] >= 1)))
+        status = false;
+      // give change
+      console.log("ourMoney", ourMoney);
+      if (ourMoney[5] >= 1 && ourMoney[10] >= 1) {
+        // give one five, one ten
+        ourMoney[5] -= 1;
+        ourMoney[10] -= 1;
+      } else {
+        // give three fives
+        ourMoney[5] -= 3;
+      }
+    }
+  });
+  return status; // successfully paid all the customers
+};
