@@ -22,7 +22,7 @@ const reformat = (s) => {
   let arr = s.split("");
   let numArr = [];
   let strArr = [];
-  
+  let result = "";
 
   arr.forEach((c) => {
     if (numbers.includes(c)) {
@@ -31,4 +31,34 @@ const reformat = (s) => {
       strArr.push(c);
     }
   });
+
+  if (numArr.length > strArr.length + 1 || numArr.length < strArr.length - 1) {
+    return "";
+  }
+
+  let numCount = 0;
+  let strCount = 0;
+  if (strArr.length > numArr.length) {
+    for (let i = 0; i <= arr.length; i++) {
+      if (i % 2 === 0 && strArr[strCount] !== undefined) {
+        result += strArr[strCount];
+        strCount++;
+      } else if (i % 2 !== 0 && numArr[numCount] !== undefined) {
+        result += numArr[numCount];
+        numCount++;
+      }
+    }
+  } else {
+    for (let i = 0; i <= arr.length; i++) {
+      if (i % 2 === 0 && numArr[numCount] !== undefined) {
+        result += numArr[numCount];
+        numCount++;
+      } else if (i % 2 !== 0 && strArr[strCount] !== undefined) {
+        result += strArr[strCount];
+        strCount++;
+      }
+    }
+  }
+
+  return result;
 };
