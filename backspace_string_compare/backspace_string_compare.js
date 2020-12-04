@@ -14,25 +14,19 @@
 // Output: true
 // Explanation: Both S and T become "".
 
+const stackCheck = (string) => {
+  let stack = [];
+
+  for (let c of string) {
+    if (c === "#") {
+      stack.pop();
+    } else {
+      stack.push(c);
+    }
+  }
+  return stack.join(",");
+};
+
 const backspaceCompare = (S, T) => {
-  let stackS = [];
-  let stackT = [];
-
-  for (let c of S) {
-    if (c == "#") {
-      stackS.pop();
-    } else {
-      stackS.push(c);
-    }
-  }
-
-  for (let c of T) {
-    if (c == "#") {
-      stackT.pop();
-    } else {
-      stackT.push(c);
-    }
-  }
-
-  return stackS.join(",") === stackT.join(",") ? true : false;
+  return stackCheck(S) === stackCheck(T) ? true : false;
 };
