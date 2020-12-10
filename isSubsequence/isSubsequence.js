@@ -21,5 +21,17 @@
 // Output: true
 
 const isSubsequence = (s, t) => {
-  
+  r isSubsequence = function(s, t) {
+    let tArr = t.split('')
+    let sArr = s.split('')
+    
+    let result = ''
+    
+    for(let i = 0; i < tArr.length; i++ ) {
+        if(tArr[i] === sArr[0]) {
+            result += tArr[i]
+            sArr.splice(0, 1)
+        }
+    }
+    return result === s ? true : false
 }
