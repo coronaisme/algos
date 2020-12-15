@@ -8,6 +8,18 @@
 // Input: [1,2,3,1]
 // Output: true
 
-const containsDuplicates = (nums) => {
+const containsDuplicate = (nums) => {
+  if (nums.length < 2) return false;
 
-}
+  let obj = {};
+
+  nums.forEach((num) => (obj[num] ? obj[num]++ : (obj[num] = 1)));
+  console.log(obj);
+
+  for (let key in obj) {
+    if (obj[key] > 1) {
+      return true;
+    }
+  }
+  return false;
+};
