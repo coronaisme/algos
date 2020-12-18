@@ -8,7 +8,6 @@
 // YYYY denotes the 4 digit year.
 // MM denotes the 2 digit month.
 // DD denotes the 2 digit day.
- 
 
 // Example 1:
 
@@ -16,5 +15,24 @@
 // Output: "2052-10-20"
 
 const reformatDate = (date) => {
-    
+  let months = {
+    Jan: "01",
+    Feb: "02",
+    Mar: "03",
+    Apr: "04",
+    May: "05",
+    Jun: "06",
+    Jul: "07",
+    Aug: "08",
+    Sep: "09",
+    Oct: "10",
+    Nov: "11",
+    Dec: "12",
+  };
+
+  let words = date.split(" ");
+  words[0] = words[0].slice(0, words[0].length - 2);
+  words[0] = words[0].length == 1 ? "0" + words[0] : words[0];
+  words[1] = months[words[1]];
+  return words.reverse().join("-");
 };
