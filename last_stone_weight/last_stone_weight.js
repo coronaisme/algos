@@ -19,4 +19,10 @@
 // we combine 2 and 1 to get 1 so the array converts to [1,1,1] then,
 // we combine 1 and 1 to get 0 so the array converts to [1] then that's the value of last stone.
 
-const lastStoneWeight = (stones) => {};
+const lastStoneWeight = (stones) => {
+  if( stones.length === 1 ) return stones[0]
+  else
+  while(stones.length > 1) {
+    stones.sort((a, b) => a - b).concat(stones.pop() - stones.pop())
+  }
+};
