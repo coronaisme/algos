@@ -2,10 +2,8 @@
 
 // The input is given as three integers representing the day, month and year respectively.
 
-// Return the answer as one of the following values 
+// Return the answer as one of the following values
 // {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}.
-
- 
 
 // Example 1:
 
@@ -16,6 +14,20 @@
 // Input: day = 18, month = 7, year = 1999
 // Output: "Sunday"
 
-const dayOfTheWeek = function(day, month, year) {
-    
+const dayOfTheWeek = function (day, month, year) {
+  const daysOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return daysOfWeek[
+    new Date(
+      year.toString() + "-" + month.toString() + "-" + day.toString()
+    ).getDay()
+  ];
 };
