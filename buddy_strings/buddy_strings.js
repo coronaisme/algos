@@ -11,7 +11,7 @@
 // Output: true
 // Explanation: You can swap A[0] = 'a' and A[1] = 'b' to get "ba", which is equal to B.
 
-var buddyStrings = function (A, B) {
+const buddyStrings = (A, B) => {
   if (A.length !== B.length) return false;
 
   let index = -1;
