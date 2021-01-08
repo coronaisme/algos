@@ -14,15 +14,30 @@
 // Output: true
 
 var canPlaceFlowers = function(flowerbed, n) {
+
+    if(flowerbed.length === n && n > 1) return false
     
     let count = 0;
 
     for(let i = 0; i < flowerbed.length; i++) {
       if(flowerbed[i] === 0) {
-        flowerbed[i-1] === 0 && flowerbed[i+1] === 0 ? count++ : null
-      } else {
-        i++
+        //check if only one slot in arr and its 0
+        if(flowerbed.length === 1) {
+          return true
+        }//check for if first index is applicable for planting
+        else if(i === 0 && flowerbed[i + 1] === 0) {
+          count++
+          i++
+        } //then check for occurences within the array 
+        else if(flowerbed[i - 1] === 0 && flowerbed[i + 1] === 0) {
+          count++
+          i++
+        } //check last item in array
+        else if(i === flowerbed.length - 1 && flowerbed[i - 1] === 0) {
+          count++
+        }
       }
+
     }
    return count >= n ? true : false
     
