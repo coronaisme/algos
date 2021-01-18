@@ -2,13 +2,13 @@
 
 // An integer n is a power of three, if there exists an integer x such that n == 3x.
 
- 
-
 // Example 1:
 
 // Input: n = 27
 // Output: true
 
-var isPowerOfThree = function(n) {
-    
+const isPowerOfThree = (n) => {
+  if (n == 1) return true;
+  if (!n || n % 3 != 0) return false;
+  else return isPower(n / 3);
 };
